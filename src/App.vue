@@ -22,5 +22,15 @@ useHead({
 </script>
 
 <template>
-  <RouterView />
+  <Main />
+
+  <FakeLogin />
+  <CalculatePanel />
+  <BillTable />
+
+  <!-- <RouterView /> -->
+  <!-- <README />
+  <TheCounter />
+  <TheInput />
+  <TheFooter /> -->
 </template>

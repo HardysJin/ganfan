@@ -2,13 +2,36 @@ import { ViteSSG } from 'vite-ssg'
 import { setupLayouts } from 'virtual:generated-layouts'
 
 // import Previewer from 'virtual:vue-component-preview'
-import App from './App.vue'
-import type { UserModule } from './types'
-import generatedRoutes from '~pages'
 
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 import 'uno.css'
+
+// import { VueQueryPlugin } from "@tanstack/vue-query";
+
+import { createPinia } from 'pinia'
+
+// import ElementPlus from 'element-plus'
+// import 'element-plus/dist/index.css'
+// import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+import type { UserModule } from './types'
+import App from './App.vue'
+import generatedRoutes from '~pages'
+import '@mdi/font/css/materialdesignicons.css'
+
+const pinia = createPinia()
+
+const vuetify = createVuetify({
+  components,
+  directives,
+  theme: {
+  },
+})
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -21,5 +44,11 @@ export const createApp = ViteSSG(
     Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
       .forEach(i => i.install?.(ctx))
     // ctx.app.use(Previewer)
+    // ctx.app.use(ElementPlus)
+    // for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    //   ctx.app.component(key, component)
+    // }
+    ctx.app.use(vuetify)
+    // ctx.app.use(VueQueryPlugin)
   },
 )
