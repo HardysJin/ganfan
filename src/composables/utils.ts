@@ -5,21 +5,20 @@ import { defineStore } from 'pinia'
 export const globalStore = defineStore('global_store', () => {
   const checked_meals = ref([])
   const [mealinfos, meals_priceRefs] = loadMeals()
-  const user = ref(getUser())
-  function setUser() {
-    user.value = getUser()
-  }
+  const user = getUser()
+  const login = ref(user.value._id === null)
   const bill_table = ref(null)
-  return { checked_meals, meals_priceRefs, mealinfos, user, setUser, bill_table }
+  return { checked_meals, meals_priceRefs, mealinfos, user, login, bill_table }
 })
 
 function getUser() {
-  return {
-    _id: localStorage.getItem('_id'),
-    name: localStorage.getItem('name'),
-    isAdmin: localStorage.getItem('isAdmin') === 'true',
-    login: ref(localStorage.getItem('_id') === null),
+  const theDefaultUser = {
+    _id: null,
+    name: null,
+    isAdmin: false,
   }
+  const state = useStorage('user', theDefaultUser)
+  return state
 }
 
 function loadMeals() {

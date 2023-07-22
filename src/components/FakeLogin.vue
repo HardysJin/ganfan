@@ -24,10 +24,13 @@ export default {
         })
 
         const result = await response.json()
-        localStorage.setItem('_id', result._id)
-        localStorage.setItem('name', result.name)
-        localStorage.setItem('isAdmin', result.isAdmin)
-        globalStore().setUser()
+        // localStorage.setItem('_id', result._id)
+        // localStorage.setItem('name', result.name)
+        // localStorage.setItem('isAdmin', result.isAdmin)
+        globalStore().user._id = result._id
+        globalStore().user.name = result.name
+        globalStore().user.isAdmin = result.isAdmin
+        globalStore().login = result._id === null
       }
       catch (error) {
         // console.error("Error:", error);
@@ -41,7 +44,7 @@ export default {
 </script>
 
 <template>
-  <v-dialog v-model="globalStore().user.login" class="bg-purple-lighten-3 pa-12" persistent rounded>
+  <v-dialog v-model="globalStore().login" class="bg-purple-lighten-3 pa-12" persistent rounded>
     <v-card class="mx-auto px-6 py-8" max-width="80%">
       <v-card-title class="text-h7">
         <v-icon icon="mdi-pistol" />
