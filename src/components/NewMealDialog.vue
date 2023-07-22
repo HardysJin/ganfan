@@ -21,7 +21,7 @@ export default {
       }
       // console.log(data)
       try {
-        const response = await fetch('http://127.0.0.1:3000/meals', {
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/meals`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

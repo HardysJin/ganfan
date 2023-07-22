@@ -7,7 +7,7 @@ const ordername = ref('')
 const price = ref('')
 const orderBy = ref(globalStore().user.name)
 const allusers = ref(null)
-fetch('http://127.0.0.1:3000/users')
+fetch(`${import.meta.env.VITE_BASE_URL}/users`)
   .then((response) => {
     return response.json()
   })
@@ -90,7 +90,7 @@ async function createOrder() {
           加餐
         </v-card-title>
         <v-card-text style="padding: 12px">
-          <iframe id="my-ifram" :src="mealinfo.url" width="100%" height="400px" class="d-flex align-center bg-secondary elevation-3 justify-center" />
+          <iframe id="my-ifram" :src="mealinfo.url" width="100%" height="400px" class="d-flex elevation-3 align-center bg-secondary justify-center" />
 
           <br>
           <v-text-field

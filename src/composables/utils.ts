@@ -24,7 +24,8 @@ function getUser() {
 function loadMeals() {
   const mealinfos = ref(null)
   const meals_priceRefs = {}
-  fetch('http://127.0.0.1:3000/meals')
+
+  fetch(`${import.meta.env.VITE_BASE_URL}/meals`)
     .then(response => response.json())
     .then((data) => {
       // console.log(data)
@@ -77,7 +78,7 @@ export async function onClickCalculate() {
 
   // console.log(data)
 
-  const response = await fetch('http://127.0.0.1:3000/summarize', {
+  const response = await fetch(`${import.meta.env.VITE_BASE_URL}/summarize`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -90,7 +91,7 @@ export async function onClickCalculate() {
 }
 
 async function updateMeal(id: string, data: object) {
-  const response = await fetch(`http://127.0.0.1:3000/meals/${id}`, {
+  const response = await fetch(`${import.meta.env.VITE_BASE_URL}/meals/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
