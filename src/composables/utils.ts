@@ -25,6 +25,7 @@ function loadMeals() {
   const mealinfos = ref(null)
   const meals_priceRefs = {}
 
+  console.log(`${import.meta.env.VITE_BASE_URL}/api/meals`)
   fetch(`${import.meta.env.VITE_BASE_URL}/api/meals`)
     .then(response => response.json())
     .then((data) => {
