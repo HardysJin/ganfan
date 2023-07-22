@@ -33,7 +33,7 @@ function loadMeals() {
       // Object.keys(data).forEach((key) => {
       //   data[key].date = new Date(data[key].date)
       // });
-      // console.log(data)
+      console.log(data)
 
       data.map(meal => meal.date = new Date(meal.date))
       data = data.sort((a, b) => b.date - a.date)
@@ -59,8 +59,8 @@ function loadMeals() {
       //   })
       //   .reduce( (res, key) => (res[key] = mealinfos.value[key], res), {} )
       // console.log(out)
-      // console.log(mealinfos)
-      // console.log(meals_priceRefs)
+      console.log(mealinfos)
+      console.log(meals_priceRefs)
     })
   return [mealinfos, meals_priceRefs]
 }
