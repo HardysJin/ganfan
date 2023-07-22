@@ -1,0 +1,34 @@
+
+GET http://localhost:3000/api
+
+
+###Get a list of all user
+GET http://localhost:3000/api/users
+
+### Create a user
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "name": "Hardys"
+}
+
+
+### GET a user by id
+GET http://localhost:3000/api/users/64b1fe047422640012913175
+
+### Update a user by id
+PATCH  http://localhost:3000/api/users/64b4ba74a3cdfe0011da6eed
+Content-Type: application/json
+
+{
+  "name": "Shiyu",
+  "isAdmin": true
+}
+
+
+### Delete a user by id
+DELETE  http://localhost:3000/api/users/64b5ef8b9d2f9f0012c590d8
+
+### 404 route Not Found
+GET http://localhost:3000/api/abc_xyz

@@ -25,7 +25,7 @@ function loadMeals() {
   const mealinfos = ref(null)
   const meals_priceRefs = {}
 
-  fetch(`${import.meta.env.VITE_BASE_URL}/meals`)
+  fetch(`${import.meta.env.VITE_BASE_URL}/api/meals`)
     .then(response => response.json())
     .then((data) => {
       // console.log(data)
@@ -78,7 +78,7 @@ export async function onClickCalculate() {
 
   // console.log(data)
 
-  const response = await fetch(`${import.meta.env.VITE_BASE_URL}/summarize`, {
+  const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/summarize`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export async function onClickCalculate() {
 }
 
 async function updateMeal(id: string, data: object) {
-  const response = await fetch(`${import.meta.env.VITE_BASE_URL}/meals/${id}`, {
+  const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/meals/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

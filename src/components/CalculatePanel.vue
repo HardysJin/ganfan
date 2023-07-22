@@ -1,5 +1,6 @@
 <script setup>
 const show_dialog = ref(false)
+const show_confirm = ref(false)
 
 function setLabel(meal_id) {
   const meal = globalStore().mealinfos.find(info => info._id === meal_id)
@@ -11,14 +12,47 @@ function setLabel(meal_id) {
   <v-card v-if="globalStore().mealinfos">
     <v-layout>
       <v-bottom-navigation grow :active="globalStore().checked_meals.length > 0">
-        <v-btn value="calculate" @click="show_dialog = !show_dialog">
+        <v-btn value="calculate" @click="show_dialog = !show_dialog" color="indigo">
           <v-icon>mdi-calculator-variant</v-icon>
           结账
         </v-btn>
-        <v-btn value="archive" @click="archiveCheckedMeal">
+        
+        <v-menu
+          v-model="show_confirm"
+          :close-on-content-click="false"
+          location="top"
+          transition="slide-y-reverse-transition"
+        >
+          <template v-slot:activator="{ props }">
+            <v-btn
+              color="indigo"
+              v-bind="props"
+              value="archive"
+            >
+              <v-icon>mdi-archive</v-icon>
+              归档
+            </v-btn>
+          </template>
+
+          <v-card>
+            <v-defaults-provider>
+              <v-btn
+                block
+                class="green accent-4 white--text"
+                color="red"
+                @click="show_dialog = false"
+                append-icon="mdi-check"
+                size="large"
+              >
+                确认
+              </v-btn>
+            </v-defaults-provider>
+          </v-card>
+        </v-menu>
+        <!-- <v-btn value="archive" @click="archiveCheckedMeal">
           <v-icon>mdi-archive</v-icon>
           归档
-        </v-btn>
+        </v-btn> -->
         <v-btn value="favorites" @click="globalStore().checked_meals = []">
           <v-icon>mdi-close-thick</v-icon>
           取消

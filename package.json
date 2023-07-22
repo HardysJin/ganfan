@@ -4,7 +4,7 @@
   "packageManager": "pnpm@8.6.7",
   "scripts": {
     "build": "vite-ssg build",
-    "dev": "vite --port 3333 --open",
+    "dev": "concurrently --kill-others \"npm run dev-backend\" \"npm run dev-frontend\"",
     "lint": "eslint .",
     "preview": "vite preview",
     "preview-https": "serve dist",
@@ -14,7 +14,10 @@
     "typecheck": "vue-tsc --noEmit",
     "up": "taze major -I",
     "postinstall": "npx simple-git-hooks",
-    "sizecheck": "npx vite-bundle-visualizer"
+    "sizecheck": "npx vite-bundle-visualizer",
+    "start": "node index.js",
+    "dev-backend": "nodemon --watch api api/index.js",
+    "dev-frontend": "vite --port 3333 --open"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
@@ -24,9 +27,17 @@
     "@unocss/reset": "^0.53.5",
     "@vueuse/core": "^10.2.1",
     "@vueuse/head": "^1.1.26",
+    "axios": "^1.4.0",
+    "concurrently": "^8.2.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "element-plus": "^2.3.8",
+    "express": "^4.17.1",
+    "express-session": "^1.17.3",
+    "http-errors": "^1.7.3",
     "material-design-icons-iconfont": "^6.7.0",
+    "mongoose": "^5.7.13",
+    "nodemon": "^3.0.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.4",
     "primevue": "^3.30.1",

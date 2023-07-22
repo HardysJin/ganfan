@@ -1,0 +1,87 @@
+### Get a list of all meals
+GET http://localhost:3000/api/meals
+
+### Create a meal
+POST http://localhost:3000/api/meals
+Content-Type: application/json
+
+  # "date": "2023/07/16",
+{
+  "restaurant": "Coco奶茶",
+  "url": "https://www.fantuanorder.com/store/coco-fresh-tea-juice/ca-11751",
+  "host": "Helen",
+  "orders": [{
+    "ordername": "烤酸奶",
+    "by": "James", 
+    "price": 45.5
+  }
+  ],
+  "totalFinal": 66.5
+}
+
+
+# "date": "2023/07/16",
+# {
+#   "restaurant": "蒙自源",
+#   "url": "https://www.fantuanorder.com/store/meetrice-noodle/ca-1535",
+#   "host": "Shiyu",
+#   "orders": [{
+#     "ordername": "肥牛米线",
+#     "by": "Hardys", 
+#     "price": 10.5
+#   },
+#   {
+#     "ordername": "四川麻辣米线",
+#     "by": "Frida", 
+#     "price": 20.5
+#   }],
+#   "totalFinal": 30.5
+# }
+
+
+### GET a meal by id
+GET http://localhost:3000/api/meals/64ba814e656e98001295f230
+
+### Update a meal by id 最好给admin
+POST http://localhost:3000/api/meals/64b4be3ce5c53c0011ecbf2b
+Content-Type: application/json
+
+{
+  "archive": false
+}
+
+### push order to meal
+PATCH  http://localhost:3000/api/meals/64b512da00a10b0012e3a551
+Content-Type: application/json
+
+{
+  "order": {
+    "by": 123,
+    "price": 20.5,
+    "ordername": "烤串"
+  }
+}
+
+### Delete a meal by id
+DELETE  http://localhost:3000/api/meals/64bad544656e98001295f249
+
+### 404 route Not Found
+GET http://localhost:3000/api/abc_xyz
+
+#hrXWgw4Q127uqZJ3
+### 结账 summarize the bill for everyone
+POST http://localhost:3000/api/summarize
+Content-Type: application/json
+
+{
+  "meals": [
+    {
+      "_id": "64bae1760b796e0012791cf6",
+      "totalFinal": 140
+    }, 
+    {
+      "_id": "64baa0ef656e98001295f23f",
+      "totalFinal": 60
+    }
+  ]
+}

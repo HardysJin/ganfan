@@ -7,7 +7,7 @@ const ordername = ref('')
 const price = ref('')
 const orderBy = ref(globalStore().user.name)
 const allusers = ref(null)
-fetch(`${import.meta.env.VITE_BASE_URL}/users`)
+fetch(`${import.meta.env.VITE_BASE_URL}/api/users`)
   .then((response) => {
     return response.json()
   })
@@ -26,7 +26,7 @@ async function createOrder() {
         price: price.value,
       },
     }
-    const response = await fetch(`http://localhost:3000/meals/${props.mealinfo._id}`, {
+    const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/meals/${props.mealinfo._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -43,33 +43,6 @@ async function createOrder() {
     console.error('Error:', error)
   }
 }
-
-// import { useQueryClient, useQuery, useMutation } from '@tanstack/vue-query'
-
-// // Access QueryClient instance
-// const queryClient = useQueryClient()
-
-// // Query
-// const { isLoading, isError, data, error } = useQuery({
-//   queryKey: ['todos'],
-//   queryFn: getTodos,
-// })
-
-// // Mutation
-// const mutation = useMutation({
-//   mutationFn: postTodo,
-//   onSuccess: () => {
-//     // Invalidate and refetch
-//     queryClient.invalidateQueries({ queryKey: ['todos'] })
-//   },
-// })
-
-// function onButtonClick() {
-//   mutation.mutate({
-//     id: Date.now(),
-//     title: 'Do Laundry',
-//   })
-// }
 </script>
 
 <template>
