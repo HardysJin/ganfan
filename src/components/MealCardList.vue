@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <v-container v-if="globalStore().mealinfos" style="padding:64px 0 0 0">
+  <v-container v-if="globalStore().mealinfos" style="padding:80px 0 0 0">
     <v-list lines="one">
       <v-list-item
         v-for="mealinfo in globalStore().mealinfos.filter(info => info.archive === false)"

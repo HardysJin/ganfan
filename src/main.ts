@@ -7,9 +7,6 @@ import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 import 'uno.css'
 
-// import { VueQueryPlugin } from "@tanstack/vue-query";
-
-import { createPinia } from 'pinia'
 
 // import ElementPlus from 'element-plus'
 // import 'element-plus/dist/index.css'
@@ -24,7 +21,6 @@ import App from './App.vue'
 import generatedRoutes from '~pages'
 import '@mdi/font/css/materialdesignicons.css'
 
-const pinia = createPinia()
 
 const vuetify = createVuetify({
   components,
@@ -49,6 +45,5 @@ export const createApp = ViteSSG(
     //   ctx.app.component(key, component)
     // }
     ctx.app.use(vuetify)
-    // ctx.app.use(VueQueryPlugin)
   },
 )
