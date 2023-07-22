@@ -107,4 +107,5 @@ export async function archiveCheckedMeal() {
   globalStore().checked_meals.forEach((id) => {
     updateMeal(id, { archive: true })
   })
+  globalStore().checked_meals = []
 }
