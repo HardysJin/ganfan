@@ -6,6 +6,7 @@ const myModule = require('../Models/Meal.model');
 const Meal = myModule.meal;
 const Order = myModule.order;
 const User = require('../Models/User.model');
+const { formatName } = require('./User.Controller');
 
 module.exports = {
   getAllMeals: async (req, res, next) => {
@@ -105,12 +106,14 @@ module.exports = {
   pushToMeal: async (req, res, next) => {
     try { 
       // check user exists
-      const found = await User.findOne({ name: req.body['order']['by'] }).exec();
+      const user_name = formatName(req.body['order']['by'])
+      req.body['order']['by'] = user_name;
+      const found = await User.findOne({ name: user_name }).exec();
       if (!found) {
         // throw createError(404, 'User does not exist');
-        const user = new User({ name: req.body['order']['by'] });
-        const result = await user.save();
-        console.log("Created ", result)
+        const user = new User({ name: user_name });
+        const res = await user.save();
+        console.log("Created ", res)
       }
       const id = req.params.id;
       const order = new Order(req.body['order']);

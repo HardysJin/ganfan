@@ -3,6 +3,15 @@ const mongoose = require('mongoose');
 
 const User = require('../Models/User.model');
 
+const formatName = (tmp_name) => {
+  const arr = tmp_name.split(" ");
+  arr.forEach(function (item, i) {
+    arr[i] = item.charAt(0).toUpperCase() + item.slice(1);
+  });
+  const name = arr.join(" ");
+  return name;
+}
+
 module.exports = {
   getAllUsers: async (req, res, next) => {
     try {
@@ -15,9 +24,12 @@ module.exports = {
     }
   },
 
+  formatName: formatName,
+
   createNewUser: async (req, res, next) => {
     try {
-      const found = await User.findOne({ name: req.body['name'] }).exec();
+      const name = formatName(req.body['name']);
+      const found = await User.findOne({ name: name }).exec();
       if (found) {
         res.send(found);
         return;

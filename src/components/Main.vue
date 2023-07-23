@@ -10,7 +10,7 @@ const store = globalStore()
           🍜 华为干饭至上
           <span class="text-subtitle-2">
             {{ ['🍼', '🥣', '🍸', '🥢', '🍽️', '🍛', '🍲', '🌮', '🍺', '🦞', '🍤', '🦪', '🥩', '🍙', '🥯', '🌭', '🍔', '🍟', '🥙', '🍩', '🍦', '🌯', '🧀', '🥬', '🍬', '🍆', '🍊', '🥝', '🍈', '🍍', '🍒', '🍓'][Math.trunc(Math.random() * 32)] }}
-            {{ store.user.isAdmin ? 'CEO' : '' }} {{ store.user.name }}
+            {{ store.user.isAdmin ? 'CEO' : '' }} {{ store.user.name === 'Shiyu'? store.user.name + '🥑' : store.user.name }}
           </span>
         </v-app-bar-title>
 
