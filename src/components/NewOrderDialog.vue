@@ -66,7 +66,6 @@ async function createOrder() {
             label="Order"
             density="compact"
             required
-            autofocus
           />
           <v-text-field
             v-model="price"
@@ -75,14 +74,12 @@ async function createOrder() {
             required
             type="number"
             prefix="$"
-            autofocus
           />
           <v-combobox
             v-model="orderBy"
             label="By"
             :items="toSelect(allusers)"
             density="compact"
-            autofocus
           />
         </v-card-text>
         <v-card-actions>

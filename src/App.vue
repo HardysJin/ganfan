@@ -17,3 +17,11 @@
   <TheInput />
   <TheFooter /> -->
 </template>
+
+<style>
+html,body{
+    -webkit-overflow-scrolling : touch !important;
+    overflow: auto !important;
+    height: 100% !important;
+}
+</style>

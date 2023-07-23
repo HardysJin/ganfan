@@ -61,7 +61,6 @@ export default {
           class="mb-2"
           clearable
           label="Name"
-          autofocus
         />
 
         <v-checkbox

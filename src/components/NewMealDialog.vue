@@ -71,13 +71,11 @@ export default {
           <v-text-field
             v-model="restaurant"
             label="餐馆"
-            autofocus
           />
           <v-text-field
             v-model="url"
             label="饭团url"
             type="url"
-            autofocus
           />
         </v-card-text>
         <v-card-actions>

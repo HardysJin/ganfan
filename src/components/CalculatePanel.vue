@@ -81,7 +81,6 @@ function setLabel(meal_id) {
             required
             type="number"
             prefix="$"
-            autofocus
           />
         </v-list-item>
       </v-card-text>
