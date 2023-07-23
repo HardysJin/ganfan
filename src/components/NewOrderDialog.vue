@@ -49,7 +49,7 @@ async function createOrder() {
   <v-row>
     <v-dialog
       v-model="dialog"
-      
+      fullscreen
     >
       <template #activator="{ props }">
         <v-btn v-bind="props" prepend-icon="mdi-plus" color="green-lighten-2" rounded="lg" density="comfortable">
@@ -58,14 +58,15 @@ async function createOrder() {
       </template>
       <v-card>
         <v-card-text style="padding: 12px">
-          <div>
-            <!-- <iframe id="my-ifram" :src="mealinfo.url" width="100%" height="400px" class="d-flex elevation-3 align-center bg-secondary justify-center" /> -->
+          <div style="margin-right: 15px;">
+            <iframe id="my-ifram" :src="mealinfo.url" width="100%" height="400px" class="d-flex elevation-3 align-center bg-secondary justify-center" />
           </div>
 
           <br>
           <v-text-field
             v-model="ordername"
             label="Order"
+            density="compact"
             required
           />
           <v-text-field
@@ -73,12 +74,14 @@ async function createOrder() {
             label="Price"
             required
             type="number"
+            density="compact"
             prefix="$"
           />
           <v-combobox
             v-model="orderBy"
             label="By"
             :items="toSelect(allusers)"
+            density="compact"
           />
         </v-card-text>
         <v-card-actions>
