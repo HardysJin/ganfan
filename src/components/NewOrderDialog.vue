@@ -58,7 +58,7 @@ async function createOrder() {
       </template>
       <v-card>
         <v-card-text style="padding: 12px">
-          <div style="margin-right: 15px;">
+          <div style="margin-right: 20px;">
             <iframe id="my-ifram" :src="mealinfo.url" width="100%" height="400px" class="d-flex elevation-3 align-center bg-secondary justify-center" />
           </div>
 
