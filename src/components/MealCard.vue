@@ -26,7 +26,6 @@ function isToday(someDate) {
     >
       <template #prepend>
         <v-checkbox-btn
-          v-if="mealinfo.host === globalStore().user.name"
           v-model="globalStore().checked_meals"
           :value="mealinfo._id"
         />
