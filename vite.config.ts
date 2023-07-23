@@ -103,19 +103,19 @@ export default defineConfig({
         theme_color: '#ffffff',
         icons: [
           {
-            src: '/ganfan_profile.jpg',
+            src: '/pwa-192x192.png',
             sizes: '192x192',
-            type: 'image/jpg',
+            type: 'image/png',
           },
           {
-            src: '/ganfan_profile.jpg',
+            src: '/pwa-512x512.png',
             sizes: '512x512',
-            type: 'image/jpg',
+            type: 'image/png',
           },
           {
-            src: '/ganfan_profile.jpg',
+            src: '/pwa-512x512.png',
             sizes: '512x512',
-            type: 'image/jpg',
+            type: 'image/png',
             purpose: 'any maskable',
           },
         ],

@@ -61,8 +61,8 @@ function loadMeals() {
         link: [
           {
             rel: 'icon',
-            type: 'image',
-            href: () => '/ganfan_profile.jpg',
+            type: 'image/svg+xml',
+            href: () => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg',
           },
         ],
       })
