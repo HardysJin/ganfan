@@ -49,7 +49,7 @@ async function createOrder() {
   <v-row>
     <v-dialog
       v-model="dialog"
-      fullscreen
+      
     >
       <template #activator="{ props }">
         <v-btn v-bind="props" prepend-icon="mdi-plus" color="green-lighten-2" rounded="lg" density="comfortable">
