@@ -58,10 +58,6 @@ async function createOrder() {
         </v-btn>
       </template>
       <v-card>
-        <v-card-title class="text-h5">
-          <v-icon icon="mdi-pencil-plus-outline" />
-          加餐
-        </v-card-title>
         <v-card-text style="padding: 12px">
           <iframe id="my-ifram" :src="mealinfo.url" width="100%" height="400px" class="d-flex elevation-3 align-center bg-secondary justify-center" />
 
