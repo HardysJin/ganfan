@@ -64,13 +64,11 @@ async function createOrder() {
           <v-text-field
             v-model="ordername"
             label="Order"
-            density="compact"
             required
           />
           <v-text-field
             v-model="price"
             label="Price"
-            density="compact"
             required
             type="number"
             prefix="$"
@@ -79,7 +77,6 @@ async function createOrder() {
             v-model="orderBy"
             label="By"
             :items="toSelect(allusers)"
-            density="compact"
           />
         </v-card-text>
         <v-card-actions>
