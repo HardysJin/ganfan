@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <v-container v-if="globalStore().mealinfos" style="padding:80px 0 0 0">
-    <v-list lines="one">
+  <v-container v-if="globalStore().mealinfos">
+    <v-list lines="one" style="padding:64px 0 0 0">
       <v-list-item
         v-for="mealinfo in globalStore().mealinfos.filter(info => info.archive === false)"
         :key="mealinfo._id"
