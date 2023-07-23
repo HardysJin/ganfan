@@ -5,6 +5,7 @@
 </script>
 
 <template>
+  <div><img src="/ganfan_profile.png" style="width: 300px; height: 300px;" alt=""></div>
   <Main />
 
   <FakeLogin />
