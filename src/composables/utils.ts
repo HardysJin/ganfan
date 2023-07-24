@@ -55,7 +55,7 @@ function loadMeals() {
           { name: 'og:description', content: "https://loremflickr.com/320/240/food/all" },
           {
             name: 'theme-color',
-            content: () => isDark.value ? '#00aba9' : '#ffffff',
+            content: '#ffffff',
           },
         ],
         link: [
