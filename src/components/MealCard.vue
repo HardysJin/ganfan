@@ -40,17 +40,13 @@ function isToday(someDate) {
       </template>
     </v-toolbar>
 
-    <v-card-actions size="small">
+    <v-card-actions size="small" @click="show = !show">
       <v-card-subtitle>
         {{ mealinfo.host }} <hr> {{ mealinfo.date.toDateString() }}
       </v-card-subtitle>
 
       <v-spacer />
-
-      <v-btn
-        :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-        @click="show = !show"
-      />
+      <v-icon style="margin-right: 10px;"> {{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }} </v-icon>
     </v-card-actions>
     <v-expand-transition>
       <v-card v-show="show" color="grey-lighten-4">
