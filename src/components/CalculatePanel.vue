@@ -38,8 +38,7 @@ function setLabel(meal_id) {
             <v-defaults-provider>
               <v-btn
                 block
-                class="green accent-4 white--text"
-                color="red"
+                class="bg-red"
                 @click="show_dialog = false"
                 append-icon="mdi-check"
                 size="large"
